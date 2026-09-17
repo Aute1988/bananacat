@@ -44,19 +44,47 @@
       document.getElementById('__diag_ts').textContent =
         'loaded ' + new Date().toISOString().slice(11,19) + ' UTC' +
         ' · SW: ' + (navigator.serviceWorker?.controller ? 'controlled (cached!)' : 'no controller')
+
+      // 🔥 关键诊断: 直接在 DOM 顶部 inline 一个不可能被 CSS 隐藏的
+      // 红色大块(高度 200px,顶部 0 位置,最大 z-index)。
+      // 如果连这个都看不到 → 是浏览器/SW/扩展程序层面的问题(不是 CSS)。
+      // 如果这个能看到但 React tree 看不到 → React 内容被某层覆盖了。
+      var probe = document.createElement('div')
+      probe.id = '__inline_probe'
+      probe.style.cssText = [
+        'position:fixed',
+        'top:50px',
+        'left:0',
+        'right:0',
+        'height:200px',
+        'z-index:2147483646',
+        'background:linear-gradient(90deg,#ef4444,#dc2626)',
+        'color:#fff',
+        'font:700 22px/1.4 system-ui',
+        'display:flex',
+        'align-items:center',
+        'justify-content:center',
+        'text-align:center',
+        'padding:20px',
+        'box-sizing:border-box'
+      ].join(';')
+      probe.innerHTML = '🔥 红色探针: 如果你看到这条红色横幅,说明 HTML inline 渲染 OK。下一条是 React (#root) 是否正常的对比。'
+      document.body.appendChild(probe)
     </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // 注册 Service Worker(只在生产 + 支持的环境)
+      // ⛔ Service Worker DISABLED for debugging.
+      // SW v1/v2 cached stale SPA index.html + bundle, hiding React
+      // tree behind body::before fixed overlay. We unregister all
+      // existing SWs and skip registration. Re-enable after the
+      // canonical deploy path proves itself.
       if ('serviceWorker' in navigator && location.protocol !== 'blob:') {
         window.addEventListener('load', () => {
-          // __VITE_BASE__ 由 vite plugin (htmlBaseFix) 注入,
-          // 与 vite 的 base 配置一致(repo site / user site / 自定义域名).
-          var base = window.__VITE_BASE__ || '/';
-          navigator.serviceWorker.register(base + 'service-worker.js')
-            .then(reg => console.log('🐱 SW registered:', reg.scope))
-            .catch(err => console.warn('🐱 SW registration failed:', err))
+          navigator.serviceWorker.getRegistrations().then(function (regs) {
+            regs.forEach(function (r) { r.unregister() })
+            if (regs.length) console.log('🐱 SW unregister:', regs.length, 'old SW(s)')
+          })
         })
       }
     </script>
