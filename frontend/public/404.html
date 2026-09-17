@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🍌🐱 香蕉猫 Launchpad</title>
+  <script>
+    // GitHub Pages SPA redirect trick: 404 → index.html via query-string pass
+    // When you visit /tokens/0xabc the server returns 404.html.
+    // We recover the path from location.pathname and rewrite to /?/<path>
+    // index.html has matching script that restores it.
+    (function () {
+      var l = window.location;
+      // strip current 404.html from the URL to get the intended path
+      var path = l.pathname.replace(/\/[^\/]*$/, '');
+      var seg = path.split('/').filter(Boolean);
+      // new url: /?/seg1/seg2
+      l.replace(
+        l.protocol + '//' + l.host + '/?/' + seg.join('/') + (l.search ? l.search : '') + l.hash
+      );
+    })();
+  </script>
+</head>
+<body>
+  <noscript>Enable JavaScript to view this site.</noscript>
+</body>
+</html>

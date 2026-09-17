@@ -1,0 +1,15 @@
+{
+  "app": { "title": "🍌🐱 Banana Cat Nền Tảng Phát Hành", "beta": "Beta Testnet · Không đầu tư tài sản thật" },
+  "nav": { "home": "Trang chủ", "create": "Tạo Token", "leaderboard": "Bảng Xếp Hạng", "tokens": "Danh Sách Token", "myTokens": "Token Của Tôi", "dashboard": "Phân Tích", "notifications": "Thông Báo" },
+  "home": { "hotTitle": "🔥 Đang Thịnh Hành", "hotSubtitle": "Dựa trên khối lượng và số giao dịch", "viewAll": "Xem toàn bộ →" },
+  "create": { "title": "🍌 Tạo Token", "step1": "Thông Tin Cơ Bản", "step2": "Danh Mục", "step3": "Đường Cong & LP", "step4": "Xác Nhận & Phát Hành" },
+  "token": { "buy": "Mua", "sell": "Bán", "supply": "Nguồn Cung", "reserve": "Dự Trữ", "trades": "Giao Dịch", "graduated": "Đã Tốt Nghiệp", "inCurve": "Trong Đường Cong", "buyAmount": "Số Lượng Mua", "sellAmount": "Số Lượng Bán", "youReceive": "Bạn Nhận Được", "comments": "💬 Bình Luận", "noComments": "Chưa có bình luận nào. Hãy là người đầu tiên!" },
+  "comments": { "title": "💬 Thảo Luận", "placeholder": "Chia sẻ suy nghĩ của bạn về token này...", "send": "Gửi", "reply": "Trả Lời", "replyTo": "Trả lời", "cancel": "Hủy", "top": "Nổi Bật", "latest": "Mới Nhất", "delete": "Xóa", "report": "Báo Cáo", "reportReason": "Lý do", "reportSent": "Đã gửi báo cáo", "deleted": "[Đã xóa]", "loginRequired": "Kết nối ví để bình luận", "loadMore": "Tải thêm", "noReplies": "Chưa có câu trả lời", "upvote": "Thích", "downvote": "Không thích" },
+  "lb": { "title": "🏆 Bảng Xếp Hạng", "subtitle": "Xem token nào đang hot · Cập nhật mỗi 60 giây", "hot": "🔥 Nóng", "volume24h": "💰 Khối Lượng 24h", "gainers": "📈 Tăng 24h", "trending": "⚡ Xu Hướng 7 Ngày", "new": "🆕 Mới Nhất", "graduating": "🚀 Sắp Tốt Nghiệp", "creators": "🏆 Nhà Phát Hành Hàng Đầu", "noData": "Chưa có dữ liệu", "updated": "Cập nhật" },
+  "dashboard": { "title": "📊 Phân Tích", "totalTokens": "Tổng Token", "graduated": "Đã Tốt Nghiệp", "new24h": "Mới (24h)", "totalVolume": "Tổng Khối Lượng", "volume24h": "Khối Lượng 24h", "trades24h": "Giao Dịch (24h)", "permanentLocks": "Khóa Vĩnh Viễn", "growth": "📈 Tăng Trưởng Token (14 ngày)", "categories": "🏷️ Phân Loại", "chains": "🌐 Phân Bổ Chain", "topTokens": "🔥 Token Nổi Bật", "noData": "Chưa có dữ liệu" },
+  "lp": { "title": "🔐 Khóa LP", "unlock": "Mở Khóa", "permanent": "Khóa Vĩnh Viễn", "locked": "Đang Khóa", "unlocked": "Đã Mở Khóa", "days": "ngày" },
+  "wallet": { "connect": "Kết Nối Ví", "disconnect": "Ngắt Kết Nối", "balance": "Số Dư", "noWallet": "Không tìm thấy ví" },
+  "common": { "loading": "Đang tải...", "error": "Lỗi", "retry": "Thử Lại", "copy": "Sao Chép", "copied": "Đã sao chép!", "share": "Chia Sẻ", "viewOnExplorer": "Xem trên Trình Duyệt", "close": "Đóng", "confirm": "Xác Nhận", "cancel": "Hủy", "save": "Lưu", "edit": "Sửa" },
+  "theme": { "dark": "🌙 Tối", "light": "☀️ Sáng", "system": "⚙️ Theo Hệ Thống" },
+"docs": { "title": "Hướng Dẫn Sử Dụng", "shortTitle": "Docs", "userGuide": "Hướng dẫn người dùng" }
+}

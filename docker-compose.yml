@@ -1,0 +1,134 @@
+# 香蕉猫 Launchpad - 一键启动
+# 用法:
+#   docker compose up -d           # 启动
+#   docker compose logs -f backend # 看后端日志
+#   docker compose down            # 停止
+
+version: '3.9'
+
+services:
+  # ============================================================
+  # PostgreSQL 数据库
+  # ============================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: bananacat-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-bananacat}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - bananacat-net
+
+  # ============================================================
+  # Redis(可选)
+  # ============================================================
+  redis:
+    image: redis:7-alpine
+    container_name: bananacat-redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redisdata:/data
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - bananacat-net
+
+  # ============================================================
+  # 后端 API
+  # ============================================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: bananacat-backend
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-bananacat}
+      REDIS_URL: redis://redis:6379
+      CORS_ORIGIN: ${CORS_ORIGIN:-*}
+      BSC_RPC: ${BSC_RPC:-https://rpc.ankr.com/bsc_testnet_chapel}
+      BSC_FACTORY: ${BSC_FACTORY}
+      ETH_RPC: ${ETH_RPC:-https://rpc.sepolia.org}
+      ETH_FACTORY: ${ETH_FACTORY}
+      ROBINHOOD_RPC: ${ROBINHOOD_RPC:-https://rpc.testnet.chain.robinhood.com}
+      ROBINHOOD_FACTORY: ${ROBINHOOD_FACTORY}
+      ARC_RPC: ${ARC_RPC:-https://rpc.testnet.arc.io}
+      ARC_FACTORY: ${ARC_FACTORY}
+      PINATA_JWT: ${PINATA_JWT:-}
+      INFURA_PROJECT_ID: ${INFURA_PROJECT_ID:-}
+      INFURA_PROJECT_SECRET: ${INFURA_PROJECT_SECRET:-}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "${BACKEND_PORT:-3001}:3001"
+    restart: unless-stopped
+    networks:
+      - bananacat-net
+
+  # ============================================================
+  # 前端 (Vite build + Nginx)
+  # ============================================================
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:3001}
+    container_name: bananacat-frontend
+    depends_on:
+      - backend
+    ports:
+      - "${FRONTEND_PORT:-80}:80"
+    restart: unless-stopped
+    networks:
+      - bananacat-net
+
+  # ============================================================
+  # (可选) pgAdmin - 数据库管理界面
+  # ============================================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: bananacat-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@bananacat.local
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
+      PGADMIN_LISTEN_PORT: 80
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    depends_on:
+      - postgres
+    profiles: ["dev"]   # 只在 docker compose --profile dev 时启动
+    networks:
+      - bananacat-net
+
+volumes:
+  pgdata:
+    driver: local
+  redisdata:
+    driver: local
+
+networks:
+  bananacat-net:
+    driver: bridge

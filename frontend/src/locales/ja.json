@@ -1,0 +1,15 @@
+{
+  "app": { "title": "🍌🐱 バナナキャット ランチパッド", "beta": "ベータ テストネット · 本番資産は投入しないでください" },
+  "nav": { "home": "ホーム", "create": "トークン作成", "leaderboard": "ランキング", "tokens": "トークン一覧", "myTokens": "マイトークン", "dashboard": "分析", "notifications": "通知" },
+  "home": { "hotTitle": "🔥 トレンド", "hotSubtitle": "取引量と取引数に基づく", "viewAll": "全リストを見る →" },
+  "create": { "title": "🍌 トークン作成", "step1": "基本情報", "step2": "カテゴリー", "step3": "カーブとLP", "step4": "確認して発売" },
+  "token": { "buy": "購入", "sell": "売却", "supply": "供給量", "reserve": "準備金", "trades": "取引数", "graduated": "卒業", "inCurve": "カーブ中", "buyAmount": "購入数量", "sellAmount": "売却数量", "youReceive": "受取額", "comments": "💬 コメント", "noComments": "コメントはまだありません。最初の一人被になりましょう!" },
+  "comments": { "title": "💬 .discussion", "placeholder": "このトークンについて意見を共有...", "send": "送信", "reply": "返信", "replyTo": "返信先", "cancel": "キャンセル", "top": "人気", "latest": "最新", "delete": "削除", "report": "報告", "reportReason": "報告理由", "reportSent": "報告済み", "deleted": "[削除済み]", "loginRequired": "コメントするにはウォレットを接続", "loadMore": "もっと読み込む", "noReplies": "返信はまだありません", "upvote": "いいね", "downvote": "よくないね" },
+  "lb": { "title": "🏆 ランキング", "subtitle": "何がホットかチェック · 60秒ごとに更新", "hot": "🔥 人気", "volume24h": "💰 24時間取引量", "gainers": "📈 24時間上昇", "trending": "⚡ 7日間トレンド", "new": "🆕 新規作成", "graduating": "🚀 卒業間近", "creators": "🏆 トップクリエイター", "noData": "データなし", "updated": "更新" },
+  "dashboard": { "title": "📊 分析", "totalTokens": "総トークン数", "graduated": "卒業済み", "new24h": "新規(24h)", "totalVolume": "総取引量", "volume24h": "24h取引量", "trades24h": "取引数(24h)", "permanentLocks": "永久ロック", "growth": "📈 トークン成長(14日間)", "categories": "🏷️ カテゴリー分布", "chains": "🌐 チェーン分布", "topTokens": "🔥 トップトークン", "noData": "データなし" },
+  "lp": { "title": "🔐 LPロック", "unlock": "ロック解除", "permanent": "永久ロック", "locked": "ロック中", "unlocked": "ロック解除済み", "days": "日" },
+  "wallet": { "connect": "ウォレット接続", "disconnect": "切断", "balance": "残高", "noWallet": "ウォレット未検出" },
+  "common": { "loading": "読み込み中...", "error": "エラー", "retry": "再試行", "copy": "コピー", "copied": "コピー完了!", "share": "共有", "viewOnExplorer": "エクスプローラーで表示", "close": "閉じる", "confirm": "確認", "cancel": "キャンセル", "save": "保存", "edit": "編集" },
+  "theme": { "dark": "🌙 ダーク", "light": "☀️ ライト", "system": "⚙️ システム" },
+"docs": { "title": "ユーザーガイド", "shortTitle": "Docs", "userGuide": "使い方ガイド" }
+}

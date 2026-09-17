@@ -1,0 +1,15 @@
+{
+  "app": { "title": "🍌🐱 바나나캣 런치패드", "beta": "베타 테스트넷 · 실제 자산 투자 금지" },
+  "nav": { "home": "홈", "create": "토큰 만들기", "leaderboard": "리더보드", "tokens": "토큰 목록", "myTokens": "내 토큰", "dashboard": "분석", "notifications": "알림" },
+  "home": { "hotTitle": "🔥 트렌드", "hotSubtitle": "거래량과 거래 수 기준", "viewAll": "전체 목록 보기 →" },
+  "create": { "title": "🍌 토큰 만들기", "step1": "기본 정보", "step2": "카테고리", "step3": "커브 및 LP", "step4": "확인 및 런칭" },
+  "token": { "buy": "구매", "sell": "판매", "supply": "공급량", "reserve": "준비금", "trades": "거래 수", "graduated": "졸업", "inCurve": "커브 중", "buyAmount": "구매 수량", "sellAmount": "판매 수량", "youReceive": "받게 될 금액", "comments": "💬 댓글", "noComments": "아직 댓글이 없습니다. 첫 번째 댓글을 달아보세요!" },
+  "comments": { "title": "💬 토론", "placeholder": "이 토큰에 대한 생각을 공유하세요...", "send": "보내기", "reply": "답글", "replyTo": "답변 대상", "cancel": "취소", "top": "인기", "latest": "최신", "delete": "삭제", "report": "신고", "reportReason": "신고 사유", "reportSent": "신고 완료", "deleted": "[삭제됨]", "loginRequired": "댓글 작성 시 지갑 연결 필요", "loadMore": "더 보기", "noReplies": "아직 답글이 없습니다", "upvote": "추천", "downvote": "비추천" },
+  "lb": { "title": "🏆 리더보드", "subtitle": "뜨는 토큰 확인 · 60초마다 갱신", "hot": "🔥 인기", "volume24h": "💰 24시간 거래량", "gainers": "📈 24시간 상승", "trending": "⚡ 7일 트렌드", "new": "🆕 최신 생성", "graduating": "🚀 졸업 임박", "creators": "🏆 топ 创建者", "noData": "데이터 없음", "updated": "갱신" },
+  "dashboard": { "title": "📊 분석", "totalTokens": "총 토큰 수", "graduated": "졸업 완료", "new24h": "신규(24h)", "totalVolume": "총 거래량", "volume24h": "24시간 거래량", "trades24h": "거래 수(24h)", "permanentLocks": "영구 잠금", "growth": "📈 토큰 성장(14일)", "categories": "🏷️ 카테고리 분포", "chains": "🌐 체인 분포", "topTokens": "🔥 인기 토큰", "noData": "데이터 없음" },
+  "lp": { "title": "🔐 LP 잠금", "unlock": "잠금 해제", "permanent": "영구 잠금", "locked": "잠금 중", "unlocked": "잠금 해제됨", "days": "일" },
+  "wallet": { "connect": "지갑 연결", "disconnect": "연결 해제", "balance": "잔액", "noWallet": "지갑 감지 안 됨" },
+  "common": { "loading": "로딩 중...", "error": "오류", "retry": "재시도", "copy": "복사", "copied": "복사 완료!", "share": "공유", "viewOnExplorer": "탐색기에서 보기", "close": "닫기", "confirm": "확인", "cancel": "취소", "save": "저장", "edit": "편집" },
+  "theme": { "dark": "🌙 다크", "light": "☀️ 라이트", "system": "⚙️ 시스템" },
+"docs": { "title": "사용자 가이드", "shortTitle": "Docs", "userGuide": "사용자 가이드" }
+}

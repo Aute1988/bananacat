@@ -1,0 +1,15 @@
+{
+  "app": { "title": "🍌🐱 Banana Cat Plataforma de Lanzamiento", "beta": "Beta Testnet · No invertir activos reales" },
+  "nav": { "home": "Inicio", "create": "Crear Token", "leaderboard": "Clasificación", "tokens": "Lista de Tokens", "myTokens": "Mis Tokens", "dashboard": "Análisis", "notifications": "Notificaciones" },
+  "home": { "hotTitle": "🔥 Tendencia", "hotSubtitle": "Basado en volumen y número de operaciones", "viewAll": "Ver lista completa →" },
+  "create": { "title": "🍌 Crear Token", "step1": "Información Básica", "step2": "Categoría", "step3": "Curva y LP", "step4": "Revisar y Lanzar" },
+  "token": { "buy": "Comprar", "sell": "Vender", "supply": "Suministro", "reserve": "Reserva", "trades": "Operaciones", "graduated": "Graduado", "inCurve": "En Curva", "buyAmount": "Cantidad de Compra", "sellAmount": "Cantidad de Venta", "youReceive": "Recibes", "comments": "💬 Comentarios", "noComments": "Aún no hay comentarios. ¡Sé el primero!" },
+  "comments": { "title": "💬 Discusión", "placeholder": "Comparte tu opinión sobre este token...", "send": "Enviar", "reply": "Responder", "replyTo": "Responder a", "cancel": "Cancelar", "top": "Top", "latest": "Más Reciente", "delete": "Eliminar", "report": "Reportar", "reportReason": "Motivo", "reportSent": "Reporte enviado", "deleted": "[Eliminado]", "loginRequired": "Conecta tu billetera para comentar", "loadMore": "Cargar más", "noReplies": "Aún no hay respuestas", "upvote": "Votar a favor", "downvote": "Votar en contra" },
+  "lb": { "title": "🏆 Clasificación", "subtitle": "Mira qué token está caliente · Actualiza cada 60s", "hot": "🔥 Caliente", "volume24h": "💰 Volumen 24h", "gainers": "📈 Ganadores 24h", "trending": "⚡ Tendencia 7 días", "new": "🆕 Recién Creado", "graduating": "🚀 Por Graduarse", "creators": "🏆 Mejores Creadores", "noData": "Sin datos", "updated": "Actualizado" },
+  "dashboard": { "title": "📊 Análisis", "totalTokens": "Total de Tokens", "graduated": "Graduados", "new24h": "Nuevos (24h)", "totalVolume": "Volumen Total", "volume24h": "Volumen 24h", "trades24h": "Operaciones (24h)", "permanentLocks": "Bloqueos Permanentes", "growth": "📈 Crecimiento de Tokens (14 días)", "categories": "🏷️ Categorías", "chains": "🌐 Distribución por Cadena", "topTokens": "🔥 Tokens Principales", "noData": "Sin datos" },
+  "lp": { "title": "🔐 Bloqueo de LP", "unlock": "Desbloquear", "permanent": "Bloqueado Permanentemente", "locked": "Bloqueado", "unlocked": "Desbloqueado", "days": "días" },
+  "wallet": { "connect": "Conectar Billetera", "disconnect": "Desconectar", "balance": "Saldo", "noWallet": "Billetera no detectada" },
+  "common": { "loading": "Cargando...", "error": "Error", "retry": "Reintentar", "copy": "Copiar", "copied": "¡Copiado!", "share": "Compartir", "viewOnExplorer": "Ver en Explorador", "close": "Cerrar", "confirm": "Confirmar", "cancel": "Cancelar", "save": "Guardar", "edit": "Editar" },
+  "theme": { "dark": "🌙 Oscuro", "light": "☀️ Claro", "system": "⚙️ Sistema" },
+"docs": { "title": "Guía del Usuario", "shortTitle": "Docs", "userGuide": "Guía del usuario" }
+}

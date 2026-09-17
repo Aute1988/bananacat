@@ -1,0 +1,16 @@
+{
+  "name": "banana-cat-launchpad-monorepo",
+  "version": "1.0.0",
+  "description": "多链 Meme 代币发射台,支持发币者自选 LP 锁仓期限",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "test:contracts": "cd contracts && forge test"
+  }
+}

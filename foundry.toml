@@ -1,0 +1,42 @@
+[profile.default]
+src = "contracts/src"
+out = "out"
+libs = ["lib"]
+test = "contracts/test"
+cache_path = "cache"
+
+solc = "0.8.24"
+optimizer = true
+optimizer_runs = 200
+
+via_ir = false
+
+[profile.default.links]
+bananacat = "BananaCat"
+
+[rpc_endpoints]
+# BSC Testnet
+bsc_testnet = "${BSC_TESTNET_RPC}"
+# BSC Mainnet
+bsc = "${BSC_RPC}"
+# Sepolia
+sepolia = "${SEPOLIA_RPC}"
+# Ethereum Mainnet
+ethereum = "${ETHEREUM_RPC}"
+# Robinhood Testnet
+robinhood_testnet = "${ROBINHOOD_TESTNET_RPC}"
+# Robinhood Mainnet
+robinhood = "${ROBINHOOD_RPC}"
+# Circle Arc Testnet
+arc_testnet = "${ARC_TESTNET_RPC}"
+
+[etherscan]
+bsc_testnet = { key = "${BSCSCAN_API_KEY}" }
+sepolia = { key = "${ETHERSCAN_API_KEY}" }
+
+[chain_overrides]
+bsc_testnet.overrides.chainId = "97"
+sepolia.overrides.chainId = "11155111"
+robinhood_testnet.overrides.chainId = "46630"
+robinhood.overrides.chainId = "4663"
+arc_testnet.overrides.chainId = "5042002"

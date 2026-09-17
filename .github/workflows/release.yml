@@ -1,0 +1,36 @@
+name: Deploy
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-publish:
+    name: Build & Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build backend
+        working-directory: backend
+        run: |
+          npm ci
+          npm run build
+          # 打包成 tar
+          tar -czf backend-${{ github.ref_name }}.tgz dist node_modules package.json package-lock.json
+
+      - name: Build frontend
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+          tar -czf frontend-${{ github.ref_name }}.tgz dist
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            backend/backend-*.tgz
+            frontend/frontend-*.tgz
+          generate_release_notes: true

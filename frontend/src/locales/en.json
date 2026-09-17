@@ -1,0 +1,122 @@
+{
+  "app": {
+    "title": "🍌🐱 Banana Cat Launchpad",
+    "beta": "Beta Testnet · Do not invest real assets"
+  },
+  "nav": {
+    "home": "Home",
+    "create": "Create Token",
+    "leaderboard": "Leaderboard",
+    "tokens": "Token List",
+    "myTokens": "My Tokens",
+    "dashboard": "Dashboard",
+    "notifications": "Notifications"
+  },
+  "home": {
+    "hotTitle": "🔥 Trending Now",
+    "hotSubtitle": "Based on trading volume and trade count",
+    "viewAll": "View full list →"
+  },
+  "create": {
+    "title": "🍌 Create Your Token",
+    "step1": "Basic Info",
+    "step2": "Category",
+    "step3": "Curve & LP",
+    "step4": "Review & Launch"
+  },
+  "token": {
+    "buy": "Buy",
+    "sell": "Sell",
+    "supply": "Supply",
+    "reserve": "Reserve",
+    "trades": "Trades",
+    "graduated": "Graduated",
+    "inCurve": "In Curve",
+    "buyAmount": "Buy Amount",
+    "sellAmount": "Sell Amount",
+    "youReceive": "You Receive",
+    "comments": "💬 Comments",
+    "noComments": "No comments yet. Be the first!"
+  },
+  "comments": {
+    "title": "💬 Discussion",
+    "placeholder": "Share your thoughts on this token...",
+    "send": "Send",
+    "reply": "Reply",
+    "replyTo": "Reply to",
+    "cancel": "Cancel",
+    "top": "Top",
+    "latest": "Latest",
+    "delete": "Delete",
+    "report": "Report",
+    "reportReason": "Report reason",
+    "reportSent": "Report submitted",
+    "deleted": "[Deleted]",
+    "loginRequired": "Connect wallet to comment",
+    "loadMore": "Load more",
+    "noReplies": "No replies yet",
+    "upvote": "Upvote",
+    "downvote": "Downvote"
+  },
+  "lb": {
+    "title": "🏆 Leaderboard",
+    "subtitle": "See what's hot · Refreshes every 60s",
+    "hot": "🔥 Hot",
+    "volume24h": "💰 24h Volume",
+    "gainers": "📈 24h Gainers",
+    "trending": "⚡ 7-Day Trend",
+    "new": "🆕 New",
+    "graduating": "🚀 Graduating",
+    "creators": "🏆 Top Creators",
+    "noData": "No data yet",
+    "updated": "Updated"
+  },
+  "dashboard": {
+    "title": "📊 Analytics",
+    "totalTokens": "Total Tokens",
+    "graduated": "Graduated",
+    "new24h": "New (24h)",
+    "totalVolume": "Total Volume",
+    "volume24h": "Volume (24h)",
+    "trades24h": "Trades (24h)",
+    "permanentLocks": "Permanent Locks",
+    "growth": "📈 Token Growth (14 days)",
+    "categories": "🏷️ Categories",
+    "chains": "🌐 Chain Distribution",
+    "topTokens": "🔥 Top Tokens",
+    "noData": "No data available"
+  },
+  "lp": {
+    "title": "🔐 LP Lock",
+    "unlock": "Unlock",
+    "permanent": "Permanently Locked",
+    "locked": "Locked",
+    "unlocked": "Unlocked",
+    "days": "days"
+  },
+  "wallet": {
+    "connect": "Connect Wallet",
+    "disconnect": "Disconnect",
+    "balance": "Balance",
+    "noWallet": "No wallet detected"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "share": "Share",
+    "viewOnExplorer": "View on Explorer",
+    "close": "Close",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit"
+  },
+  "theme": {
+    "dark": "🌙 Dark",
+    "light": "☀️ Light",
+    "system": "⚙️ System"
+  }
+}

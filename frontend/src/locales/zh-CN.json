@@ -1,0 +1,127 @@
+{
+  "app": {
+    "title": "🍌🐱 香蕉猫发射台",
+    "beta": "测试网 Beta · 请勿投入真实资产"
+  },
+  "nav": {
+    "home": "首页",
+    "create": "发币",
+    "leaderboard": "排行榜",
+    "tokens": "代币列表",
+    "myTokens": "我的代币",
+    "dashboard": "数据分析",
+    "notifications": "通知"
+  },
+  "home": {
+    "hotTitle": "🔥 当前热门",
+    "hotSubtitle": "基于交易量和交易笔数综合排名",
+    "viewAll": "查看完整榜单 →"
+  },
+  "create": {
+    "title": "🍌 创建代币",
+    "step1": "基本信息",
+    "step2": "分类",
+    "step3": "曲线和LP",
+    "step4": "确认发布"
+  },
+  "token": {
+    "buy": "买入",
+    "sell": "卖出",
+    "supply": "供应量",
+    "reserve": "储备金",
+    "trades": "交易数",
+    "graduated": "已毕业",
+    "inCurve": "曲线中",
+    "buyAmount": "买入数量",
+    "sellAmount": "卖出数量",
+    "youReceive": "你将收到",
+    "comments": "💬 讨论",
+    "noComments": "还没有评论,抢沙发!"
+  },
+  "comments": {
+    "title": "💬 讨论区",
+    "placeholder": "分享你对这枚代币的看法...",
+    "send": "发送",
+    "reply": "回复",
+    "replyTo": "回复",
+    "cancel": "取消",
+    "top": "最热",
+    "latest": "最新",
+    "delete": "删除",
+    "report": "举报",
+    "reportReason": "举报原因",
+    "reportSent": "举报已提交",
+    "deleted": "[已删除]",
+    "loginRequired": "连接钱包后参与讨论",
+    "loadMore": "加载更多",
+    "noReplies": "还没有回复",
+    "upvote": "点赞",
+    "downvote": "点踩"
+  },
+  "lb": {
+    "title": "🏆 排行榜",
+    "subtitle": "看看哪个代币最火 · 每60秒刷新",
+    "hot": "🔥 综合热门",
+    "volume24h": "💰 24h交易量",
+    "gainers": "📈 24h涨幅",
+    "trending": "⚡ 7天趋势",
+    "new": "🆕 最新创建",
+    "graduating": "🚀 即将毕业",
+    "creators": "🏆 顶级发币者",
+    "noData": "暂无数据",
+    "updated": "更新于"
+  },
+  "dashboard": {
+    "title": "📊 数据分析",
+    "totalTokens": "总代币数",
+    "graduated": "已毕业",
+    "new24h": "新增(24h)",
+    "totalVolume": "总交易量",
+    "volume24h": "24h交易量",
+    "trades24h": "交易笔数(24h)",
+    "permanentLocks": "永久锁仓",
+    "growth": "📈 代币增长趋势(14天)",
+    "categories": "🏷️ 分类分布",
+    "chains": "🌐 链分布",
+    "topTokens": "🔥 热门代币",
+    "noData": "暂无数据"
+  },
+  "lp": {
+    "title": "🔐 LP锁仓",
+    "unlock": "解锁",
+    "permanent": "永久锁仓",
+    "locked": "锁仓中",
+    "unlocked": "已解锁",
+    "days": "天"
+  },
+  "wallet": {
+    "connect": "连接钱包",
+    "disconnect": "断开连接",
+    "balance": "余额",
+    "noWallet": "未检测到钱包"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "出错了",
+    "retry": "重试",
+    "copy": "复制",
+    "copied": "已复制!",
+    "share": "分享",
+    "viewOnExplorer": "在浏览器查看",
+    "close": "关闭",
+    "confirm": "确认",
+    "cancel": "取消",
+    "save": "保存",
+    "edit": "编辑"
+  },
+  "theme": {
+    "dark": "🌙 深色",
+    "light": "☀️ 亮色",
+    "system": "⚙️ 跟随系统"
+  },
+  "docs": {
+    "title": "使用文档",
+    "shortTitle": "文档",
+    "userGuide": "使用文档"
+  }
+}

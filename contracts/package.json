@@ -1,0 +1,24 @@
+{
+  "name": "banana-cat-contracts",
+  "version": "1.0.0",
+  "description": "香蕉猫 Launchpad 智能合约",
+  "private": true,
+  "scripts": {
+    "compile": "forge build",
+    "test": "forge test -vvv",
+    "deploy:bsc": "forge script scripts/DeployBSC.s.sol:DeployBSC --rpc-url bsc_testnet --broadcast --verify",
+    "deploy:eth": "forge script scripts/DeployETH.s.sol:DeployETH --rpc-url sepolia --broadcast --verify",
+    "deploy:robinhood": "forge script scripts/DeployRobinhood.s.sol:DeployRobinhood --rpc-url robinhood_testnet --broadcast",
+    "deploy:arc": "forge script scripts/DeployArc.s.sol:DeployArc --rpc-url arc_testnet --broadcast",
+    "coverage": "forge coverage",
+    "gas-report": "forge test --gas-report"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0",
+    "@pancakeswap/v2-core": "^1.0.0",
+    "@pancakeswap/v2-periphery": "^1.0.0"
+  },
+  "devDependencies": {
+    "forge-std": "github:foundry-rs/forge-std"
+  }
+}

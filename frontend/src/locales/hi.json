@@ -1,0 +1,15 @@
+{
+  "app": { "title": "🍌🐱 बनाना कैट लॉन्चपैड", "beta": "बीटा टेस्टनेट · असली पैसे न लगाएं" },
+  "nav": { "home": "होम", "create": "टोकन बनाएं", "leaderboard": "लीडरबोर्ड", "tokens": "टोकन सूची", "myTokens": "मेरे टोकन", "dashboard": "विश्लेषण", "notifications": "सूचनाएं" },
+  "home": { "hotTitle": "🔥 ट्रेंडिंग", "hotSubtitle": "ट्रेडिंग वॉल्यूम और ट्रेड काउंट पर आधारित", "viewAll": "पूरी सूची देखें →" },
+  "create": { "title": "🍌 टोकन बनाएं", "step1": "बुनियादी जानकारी", "step2": "श्रेणी", "step3": "कर्व और LP", "step4": "समीक्षा करें और लॉन्च करें" },
+  "token": { "buy": "खरीदें", "sell": "बेचें", "supply": "आपूर्ति", "reserve": "रिज़र्व", "trades": "ट्रेड", "graduated": "ग्रेजुएटेड", "inCurve": "कर्व में", "buyAmount": "खरीद राशि", "sellAmount": "बिक्री राशि", "youReceive": "आपको मिलेगा", "comments": "💬 टिप्पणियां", "noComments": "अभी तक कोई टिप्पणी नहीं। पहले वाले बनें!" },
+  "comments": { "title": "💬 चर्चा", "placeholder": "इस टोकन पर अपने विचार साझा करें...", "send": "भेजें", "reply": "जवाब दें", "replyTo": "जवाब के लिए", "cancel": "रद्द करें", "top": "टॉप", "latest": "नवीनतम", "delete": "हटाएं", "report": "रिपोर्ट करें", "reportReason": "कारण", "reportSent": "रिपोर्ट भेजी गई", "deleted": "[हटाई गई]", "loginRequired": "टिप्पणी के लिए वॉलेट कनेक्ट करें", "loadMore": "और लोड करें", "noReplies": "अभी तक कोई जवाब नहीं", "upvote": "अपवोट", "downvote": "डाउनवोट" },
+  "lb": { "title": "🏆 लीडरबोर्ड", "subtitle": "देखें कौन सा टोकन हॉट है · हर 60 सेकंड में अपडेट", "hot": "🔥 हॉट", "volume24h": "💰 24 घंटे वॉल्यूम", "gainers": "📈 24 घंटे गेनर", "trending": "⚡ 7 दिन का ट्रेंड", "new": "🆕 नया बनाया", "graduating": "🚀 ग्रेजुएट होने वाला", "creators": "🏆 शीर्ष क्रिएटर्स", "noData": "कोई डेटा नहीं", "updated": "अपडेट" },
+  "dashboard": { "title": "📊 विश्लेषण", "totalTokens": "कुल टोकन", "graduated": "ग्रेजुएटेड", "new24h": "नया (24 घंटे)", "totalVolume": "कुल वॉल्यूम", "volume24h": "24 घंटे वॉल्यूम", "trades24h": "ट्रेड (24 घंटे)", "permanentLocks": "स्थायी लॉक", "growth": "📈 टोकन वृद्धि (14 दिन)", "categories": "🏷️ श्रेणियां", "chains": "🌐 चेन वितरण", "topTokens": "🔥 शीर्ष टोकन", "noData": "कोई डेटा नहीं" },
+  "lp": { "title": "🔐 LP लॉक", "unlock": "अनलॉक", "permanent": "स्थायी रूप से लॉक", "locked": "लॉक है", "unlocked": "अनलॉक हो गया", "days": "दिन" },
+  "wallet": { "connect": "वॉलेट कनेक्ट करें", "disconnect": "डिस्कनेक्ट", "balance": "बैलेंस", "noWallet": "वॉलेट नहीं मिला" },
+  "common": { "loading": "लोड हो रहा है...", "error": "त्रुटि", "retry": "पुनः प्रयास", "copy": "कॉपी करें", "copied": "कॉपी हो गया!", "share": "शेयर करें", "viewOnExplorer": "एक्सप्लोरर पर देखें", "close": "बंद करें", "confirm": "पुष्टि करें", "cancel": "रद्द करें", "save": "सहेजें", "edit": "संपादित करें" },
+  "theme": { "dark": "🌙 डार्क", "light": "☀️ लाइट", "system": "⚙️ सिस्टम" },
+"docs": { "title": "उपयोगकर्ता गाइड", "shortTitle": "Docs", "userGuide": "उपयोगकर्ता गाइड" }
+}

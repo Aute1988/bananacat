@@ -1,0 +1,17 @@
+**/node_modules
+**/dist
+**/.git
+**/.env
+**/.env.local
+**/coverage
+**/.DS_Store
+**/*.log
+**/.cache
+**/.vscode
+**/.idea
+**/.cursor
+tests/
+**/*.test.ts
+**/*.test.tsx
+README.md
+**/CHANGELOG.md

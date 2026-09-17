@@ -1,0 +1,22 @@
+{
+  "app": { "title": "🍌🐱 香蕉貓發射台", "beta": "測試網 Beta · 請勿投入真實資產" },
+  "nav": { "home": "首頁", "create": "發幣", "leaderboard": "排行榜", "tokens": "代幣列表", "myTokens": "我的代幣", "dashboard": "數據分析", "notifications": "通知" },
+  "home": { "hotTitle": "🔥 當前熱門", "hotSubtitle": "基於交易量和交易筆數綜合排名", "viewAll": "查看完整榜單 →" },
+  "create": { "title": "🍌 創建代幣", "step1": "基本信息", "step2": "分類", "step3": "曲線和LP", "step4": "確認發布" },
+  "token": { "buy": "買入", "sell": "賣出", "supply": "供應量", "reserve": "儲備金", "trades": "交易數", "graduated": "已畢業", "inCurve": "曲線中", "buyAmount": "買入數量", "sellAmount": "賣出數量", "youReceive": "你將收到", "comments": "💬 討論", "noComments": "還沒有評論,搶沙發!" },
+  "comments": { "title": "💬 討論區", "placeholder": "分享你對這枚代幣的看法...", "send": "發送", "reply": "回覆", "replyTo": "回覆", "cancel": "取消", "top": "最熱", "latest": "最新", "delete": "刪除", "report": "舉報", "reportReason": "舉報原因", "reportSent": "舉報已提交", "deleted": "[已刪除]", "loginRequired": "連接錢包後參與討論", "loadMore": "載入更多", "noReplies": "還沒有回覆", "upvote": "點贊", "downvote": "點踩" },
+  "lb": { "title": "🏆 排行榜", "subtitle": "看看哪個代幣最火 · 每60秒刷新", "hot": "🔥 綜合熱門", "volume24h": "💰 24h交易量", "gainers": "📈 24h漲幅", "trending": "⚡ 7天趨勢", "new": "🆕 最新創建", "graduating": "🚀 即將畢業", "creators": "🏆 頂級發幣者", "noData": "暫無數據", "updated": "更新於" },
+  "dashboard": { "title": "📊 數據分析", "totalTokens": "總代幣數", "graduated": "已畢業", "new24h": "新增(24h)", "totalVolume": "總交易量", "volume24h": "24h交易量", "trades24h": "交易筆數(24h)", "permanentLocks": "永久鎖倉", "growth": "📈 代幣增長趨勢(14天)", "categories": "🏷️ 分類分布", "chains": "🌐 鏈分布", "topTokens": "🔥 熱門代幣", "noData": "暫無數據" },
+  "lp": { "title": "🔐 LP鎖倉", "unlock": "解鎖", "permanent": "永久鎖倉", "locked": "鎖倉中", "unlocked": "已解鎖", "days": "天" },
+  "wallet": { "connect": "連接錢包", "disconnect": "斷開連接", "balance": "餘額", "noWallet": "未檢測到錢包" },
+  "common": { "loading": "載入中...", "error": "出錯了", "retry": "重試", "copy": "複製", "copied": "已複製!", "share": "分享", "viewOnExplorer": "在瀏覽器查看", "close": "關閉", "confirm": "確認", "cancel": "取消", "save": "保存", "edit": "編輯" },
+  "theme": { "dark": "🌙 深色", "light": "☀️ 亮色", "system": "⚙️ 跟隨系統" },
+"docs": {
+  "title": "使用文檔", "shortTitle": "文檔", "userGuide": "使用文檔",
+  "intro": "歡迎來到 🍌🐱 香蕉貓發射台！本指南涵蓋了您需要了解的所有內容。",
+  "quickStart": "快速開始（3 步）",
+  "step1Title": "1. 連接您的錢包", "step1Body": "點擊右上角的「連接錢包」按鈕。",
+  "step2Title": "2. 獲取測試代幣", "step2Body": "從水龍頭獲取免費測試代幣。",
+  "step3Title": "3. 創建或購買", "step3Body": "點擊「創建代幣」啟動你的專案，或瀏覽 /leaderboard 尋找熱門代幣。"
+}
+}

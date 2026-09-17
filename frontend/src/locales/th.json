@@ -1,0 +1,15 @@
+{
+  "app": { "title": "🍌🐱 บานาน่าแมว เปลี่ยนแพลตฟอร์ม", "beta": "เบต้า เทสต์เน็ต · อย่าใส่เงินจริง" },
+  "nav": { "home": "หน้าแรก", "create": "สร้างโทเค็น", "leaderboard": "อันดับ", "tokens": "รายการโทเค็น", "myTokens": "โทเค็นของฉัน", "dashboard": "วิเคราะห์", "notifications": "แจ้งเตือน" },
+  "home": { "hotTitle": "🔥 กำลังมาแรง", "hotSubtitle": "จากปริมาณการซื้อขายและจำนวนรายการ", "viewAll": "ดูรายการทั้งหมด →" },
+  "create": { "title": "🍌 สร้างโทเค็น", "step1": "ข้อมูลพื้นฐาน", "step2": "หมวดหมู่", "step3": "เส้นโค้งและLP", "step4": "ตรวจสอบและเปิดตัว" },
+  "token": { "buy": "ซื้อ", "sell": "ขาย", "supply": "อุปทาน", "reserve": "เงินสำรอง", "trades": "รายการ", "graduated": "สำเร็จแล้ว", "inCurve": "อยู่ในเส้นโค้ง", "buyAmount": "จำนวนซื้อ", "sellAmount": "จำนวนขาย", "youReceive": "คุณจะได้รับ", "comments": "💬 ความคิดเห็น", "noComments": "ยังไม่มีความเห็น มาเป็นคนแรก!" },
+  "comments": { "title": "💬 ถกเถียง", "placeholder": "แบ่งปันความคิดเห็นเกี่ยวกับโทเค็นนี้...", "send": "ส่ง", "reply": "ตอบ", "replyTo": "ตอบกลับ", "cancel": "ยกเลิก", "top": "ยอดนิยม", "latest": "ล่าสุด", "delete": "ลบ", "report": "รายงาน", "reportReason": "เหตุผล", "reportSent": "รายงานแล้ว", "deleted": "[ลบแล้ว]", "loginRequired": "ต้องเชื่อมต่อกระเป๋าเงินก่อน", "loadMore": "โหลดเพิ่ม", "noReplies": "ยังไม่มีการตอบกลับ", "upvote": "ถูกใจ", "downvote": "ไม่ถูกใจ" },
+  "lb": { "title": "🏆 อันดับ", "subtitle": "ดูว่าอะไรมาแรง · รีเฟรชทุก 60 วินาที", "hot": "🔥 มาแรง", "volume24h": "💰 ปริมาณ 24ชม.", "gainers": "📈 ขึ้น 24ชม.", "trending": "⚡ เทรนด์ 7 วัน", "new": "🆕 สร้างใหม่", "graduating": "🚀 ใกล้สำเร็จ", "creators": "🏆 ผู้สร้างยอดนิยม", "noData": "ยังไม่มีข้อมูล", "updated": "อัปเดต" },
+  "dashboard": { "title": "📊 วิเคราะห์", "totalTokens": "โทเค็นทั้งหมด", "graduated": "สำเร็จแล้ว", "new24h": "ใหม่(24ชม.)", "totalVolume": "ปริมาณรวม", "volume24h": "ปริมาณ 24ชม.", "trades24h": "รายการ(24ชม.)", "permanentLocks": "ล็อกถาวร", "growth": "📈 การเติบโต(14 วัน)", "categories": "🏷️ หมวดหมู่", "chains": "🌐 กระจายตัวตามเชน", "topTokens": "🔥 โทเค็นยอดนิยม", "noData": "ยังไม่มีข้อมูล" },
+  "lp": { "title": "🔐 ล็อก LP", "unlock": "ปลดล็อก", "permanent": "ล็อกถาวร", "locked": "ล็อกอยู่", "unlocked": "ปลดล็อกแล้ว", "days": "วัน" },
+  "wallet": { "connect": "เชื่อมต่อกระเป๋า", "disconnect": "ตัดการเชื่อม", "balance": "ยอดเงิน", "noWallet": "ไม่พบกระเป๋า" },
+  "common": { "loading": "กำลังโหลด...", "error": "ข้อผิดพลาด", "retry": "ลองใหม่", "copy": "คัดลอก", "copied": "คัดลอกแล้ว!", "share": "แชร์", "viewOnExplorer": "ดูในเบราว์เซอร์", "close": "ปิด", "confirm": "ยืนยัน", "cancel": "ยกเลิก", "save": "บันทึก", "edit": "แก้ไข" },
+  "theme": { "dark": "🌙 มืด", "light": "☀️ สว่าง", "system": "⚙️ ตามระบบ" },
+"docs": { "title": "คู่มือการใช้งาน", "shortTitle": "Docs", "userGuide": "คู่มือผู้ใช้" }
+}

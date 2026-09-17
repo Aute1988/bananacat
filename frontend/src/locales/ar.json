@@ -1,0 +1,15 @@
+{
+  "app": { "title": "🍌🐱 Banana Cat منصة الإطلاق", "beta": "النسخة التجريبية · لا تستثمر أموالاً حقيقية" },
+  "nav": { "home": "الرئيسية", "create": "إنشاء توكن", "leaderboard": "التصنيف", "tokens": "قائمة التوكنات", "myTokens": "توكناتي", "dashboard": "التحليلات", "notifications": "الإشعارات" },
+  "home": { "hotTitle": "🔥 الرائج", "hotSubtitle": "بناءً على حجم التداول وعدد الصفقات", "viewAll": "عرض القائمة الكاملة →" },
+  "create": { "title": "🍌 إنشاء توكن", "step1": "المعلومات الأساسية", "step2": "الفئة", "step3": "المنحنى وLP", "step4": "المراجعة والإطلاق" },
+  "token": { "buy": "شراء", "sell": "بيع", "supply": "العرض", "reserve": "الاحتياطي", "trades": "التداولات", "graduated": "متخرج", "inCurve": "في المنحنى", "buyAmount": "كمية الشراء", "sellAmount": "كمية البيع", "youReceive": "ستحصل على", "comments": "💬 التعليقات", "noComments": "لا توجد تعليقات بعد. كن أول من يعلق!" },
+  "comments": { "title": "💬 النقاش", "placeholder": "شارك رأيك حول هذا التوكن...", "send": "إرسال", "reply": "رد", "replyTo": "رد على", "cancel": "إلغاء", "top": "الأعلى", "latest": "الأحدث", "delete": "حذف", "report": "إبلاغ", "reportReason": "السبب", "reportSent": "تم إرسال البلاغ", "deleted": "[محذوف]", "loginRequired": "وصّل محفظتك للتعليق", "loadMore": "تحميل المزيد", "noReplies": "لا توجد ردود بعد", "upvote": "تصويت للإيجابي", "downvote": "تصويت سلبي" },
+  "lb": { "title": "🏆 التصنيف", "subtitle": "شاهد التوكنات الرائجة · تحديث كل 60 ثانية", "hot": "🔥 رائج", "volume24h": "💰 حجم 24 ساعة", "gainers": "📈 الرابحين 24 ساعة", "trending": "⚡ اتجاه 7 أيام", "new": "🆕 حديث الإنشاء", "graduating": "🚀 على وشك التخرج", "creators": "🏆 أفضل المنشئين", "noData": "لا توجد بيانات", "updated": "تم التحديث" },
+  "dashboard": { "title": "📊 التحليلات", "totalTokens": "إجمالي التوكنات", "graduated": "متخرجون", "new24h": "جديد (24 ساعة)", "totalVolume": "الحجم الإجمالي", "volume24h": "حجم 24 ساعة", "trades24h": "التداولات (24 ساعة)", "permanentLocks": "القفل الدائم", "growth": "📈 نمو التوكنات (14 يوم)", "categories": "🏷️ الفئات", "chains": "🌐 توزيع السلسلة", "topTokens": "🔥 التوكنات الرائدة", "noData": "لا توجد بيانات" },
+  "lp": { "title": "🔐 قفل LP", "unlock": "إلغاء القفل", "permanent": "مقفل بشكل دائم", "locked": "مقفل", "unlocked": "تم إلغاء القفل", "days": "أيام" },
+  "wallet": { "connect": "وصّل المحفظة", "disconnect": "قطع الاتصال", "balance": "الرصيد", "noWallet": "لم يتم العثور على محفظة" },
+  "common": { "loading": "جارٍ التحميل...", "error": "خطأ", "retry": "إعادة المحاولة", "copy": "نسخ", "copied": "تم النسخ!", "share": "مشاركة", "viewOnExplorer": "عرض في المستكشف", "close": "إغلاق", "confirm": "تأكيد", "cancel": "إلغاء", "save": "حفظ", "edit": "تعديل" },
+  "theme": { "dark": "🌙 داكن", "light": "☀️ فاتح", "system": "⚙️ النظام" },
+"docs": { "title": "دليل المستخدم", "shortTitle": "Docs", "userGuide": "دليل المستخدم" }
+}
