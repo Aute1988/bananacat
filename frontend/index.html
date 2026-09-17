@@ -30,6 +30,21 @@
     <!-- 全局噪点 + 扫描线叠层(科技感 + 颗粒感) -->
     <div id="__noise-overlay"></div>
     <div id="__scanlines"></div>
+    <!--
+      ⛑️ 诊断标记: 不依赖 React / SW / 任何 bundle,
+      直接 inline 在 #root 同级。每次刷新一定能看到。
+      如果连这条都没出现,说明浏览器拿到的是空 HTML / SW 缓存了坏版本。
+    -->
+    <div id="__diagnostic_banner" style="position:fixed;top:0;left:0;right:0;padding:10px 16px;background:linear-gradient(90deg,#fbbf24,#f59e0b);color:#1a1a1a;font:600 13px/1.4 system-ui;z-index:2147483647;box-shadow:0 2px 12px rgba(0,0,0,.4);text-align:center;">
+      🍌 香蕉猫 · HTML 正常加载 &mdash;
+      <span id="__diag_ts"></span>
+    </div>
+    <script>
+      // 显示当前时间戳 + SW 状态,让我们能确定 SW 没缓存住旧 HTML
+      document.getElementById('__diag_ts').textContent =
+        'loaded ' + new Date().toISOString().slice(11,19) + ' UTC' +
+        ' · SW: ' + (navigator.serviceWorker?.controller ? 'controlled (cached!)' : 'no controller')
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
