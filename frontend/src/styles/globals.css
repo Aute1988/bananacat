@@ -144,14 +144,16 @@ html {
   scroll-behavior: smooth;
   scrollbar-color: rgba(252, 211, 77, 0.5) transparent;
   /*
-   * 之前用 transform: translateZ(0) 修 chromium fixed 背景闪烁,
-   * 但 transform 会让 html 变成新的 stacking context,
-   * 并把 body::before/::after 这类 fixed 叠层的 z-index 行为
-   * 改成"覆盖 #root",导致整页只剩背景看不到 React 内容。
-   * 用 will-change: transform 同样能让浏览器单独合成层,
-   * 但不强制建立新的 stacking context。
+   * transform: translateZ(0) 是必须的!
+   * 它让 html 变成一个独立的 stacking context,
+   * 这样 #root { position:relative; z-index:3 } 就能超越
+   * body::before/::after (#__noise-overlay / #__scanlines) 的 z-index:0,
+   * 把 React 内容放到 overlay 叠层之上。
+   * 之前错用 will-change: transform 不会建立 stacking context,
+   * 导致 overlay 始终在 React 内容之上。
    */
-  will-change: transform;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   background-color: var(--color-bg-base);
 }
 
