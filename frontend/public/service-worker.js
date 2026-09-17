@@ -14,12 +14,16 @@ const STATIC_CACHE = `${CACHE_VERSION}-static`
 const API_CACHE = `${CACHE_VERSION}-api`
 const IMG_CACHE = `${CACHE_VERSION}-img`
 
+// SW scope = registration URL 的前缀。在 repo site (GH Pages) 下为
+// '/bananacat/'；在 user site / custom domain 下为 '/'。
+const BASE = self.location.pathname.replace(/service-worker\.js$/, '')
+
 const PRE_CACHE = [
-  '/',
-  '/manifest.json',
-  '/offline.html',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
+  BASE,
+  BASE + 'manifest.json',
+  BASE + 'offline.html',
+  BASE + 'icons/icon-192.png',
+  BASE + 'icons/icon-512.png',
 ]
 
 // ============= 安装:预缓存 =============
@@ -50,7 +54,7 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return
 
   // ========== 后端 API:network-first ==========
-  if (url.pathname.startsWith('/api/')) {
+  if (url.pathname.startsWith(BASE + 'api/') || url.pathname.startsWith('/api/')) {
     event.respondWith(networkFirst(request, API_CACHE))
     return
   }
@@ -62,7 +66,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   // ========== 静态资源(JSCSS font)=SW-Revalidate ==========
-  if (/\.(js|css|woff2?|ttf)$/.test(url.pathname) || url.pathname.startsWith('/assets/')) {
+  if (/\.(js|css|woff2?|ttf)$/.test(url.pathname) || url.pathname.startsWith(BASE + 'assets/')) {
     event.respondWith(staleWhileRevalidate(request, STATIC_CACHE))
     return
   }
@@ -71,7 +75,7 @@ self.addEventListener('fetch', (event) => {
   if (request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html')) {
     event.respondWith(
       fetch(request).catch(() =>
-        caches.match(request).then((r) => r || caches.match('/offline.html'))
+        caches.match(request).then((r) => r || caches.match(BASE + 'offline.html'))
       )
     )
     return

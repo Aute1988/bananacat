@@ -43,8 +43,12 @@ jobs:
 
       - name: Build frontend (Vite)
         working-directory: frontend
+        # Default to '/bananacat/' so the built site loads from
+        # https://<owner>.github.io/bananacat/. Override via the
+        # VITE_BASE_PATH repo variable when using a custom domain or
+        # user site.
         env:
-          VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH || '/' }}
+          VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH || '/bananacat/' }}
           VITE_CHAIN_RPC_BNB: ${{ vars.VITE_CHAIN_RPC_BNB }}
           VITE_CHAIN_RPC_ETH: ${{ vars.VITE_CHAIN_RPC_ETH }}
         run: npm run build

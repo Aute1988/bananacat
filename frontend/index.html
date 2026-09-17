@@ -36,7 +36,17 @@
       // 注册 Service Worker(只在生产 + 支持的环境)
       if ('serviceWorker' in navigator && location.protocol !== 'blob:') {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js')
+          // 推断 SW 路径: 在 repo site（/bananacat/）下，service-worker.js
+          // 也在 /bananacat/service-worker.js；user site（/）则在根。
+          var path = location.pathname;
+          var repoRoot = '/bananacat/';
+          var swUrl;
+          if (path === repoRoot || path.indexOf(repoRoot) === 0) {
+            swUrl = repoRoot + 'service-worker.js';
+          } else {
+            swUrl = '/service-worker.js';
+          }
+          navigator.serviceWorker.register(swUrl)
             .then(reg => console.log('🐱 SW registered:', reg.scope))
             .catch(err => console.warn('🐱 SW registration failed:', err))
         })
