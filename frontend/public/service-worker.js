@@ -9,7 +9,7 @@
  *
  * 离线 fallback: /offline.html
  */
-const CACHE_VERSION = 'bananacat-v2'
+const CACHE_VERSION = 'bananacat-v3'
 const STATIC_CACHE = `${CACHE_VERSION}-static`
 const API_CACHE = `${CACHE_VERSION}-api`
 const IMG_CACHE = `${CACHE_VERSION}-img`
@@ -19,28 +19,31 @@ const IMG_CACHE = `${CACHE_VERSION}-img`
 const BASE = self.location.pathname.replace(/service-worker\.js$/, '')
 
 const PRE_CACHE = [
-  BASE,
   BASE + 'manifest.json',
   BASE + 'offline.html',
   BASE + 'icons/icon-192.png',
   BASE + 'icons/icon-512.png',
 ]
 
-// ============= 安装:预缓存 =============
+// ============= 安装:预缓存 + 立即接管 =============
 self.addEventListener('install', (event) => {
+  // 强制让新 SW 立即进入 active 状态,不等待旧 SW 的 tab 关闭
+  self.skipWaiting()
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then((cache) => cache.addAll(PRE_CACHE).catch(() => {}))
-      .then(() => self.skipWaiting())
   )
 })
 
 // ============= 激活:清旧缓存 =============
 self.addEventListener('activate', (event) => {
+  // 彻底清空所有 cache,然后强制重新 precache 当前 PRE_CACHE。
+  // 这是 SW 缓存了"损坏 HTML / stale bundle"的最终修复——
+  // 之前 PRE_CACHE 包含了 '/bananacat/' 根路径,会让 SW 把损坏的
+  // SPA index.html 缓存起来。修复后只 precache 真正的静态资源。
   event.waitUntil(
     caches.keys().then((keys) => Promise.all(
-      keys.filter((k) => !k.startsWith(CACHE_VERSION))
-          .map((k) => caches.delete(k))
+      keys.map((k) => caches.delete(k))
     )).then(() => self.clients.claim())
   )
 })
