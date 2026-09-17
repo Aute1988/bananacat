@@ -70,23 +70,27 @@
       ].join(';')
       probe.innerHTML = '🔥 红色探针: 如果你看到这条红色横幅,说明 HTML inline 渲染 OK。下一条是 React (#root) 是否正常的对比。'
       document.body.appendChild(probe)
+
+      // 🔥 强制立即 unregister 所有 SW (不等待 window.load,避免被旧
+      // bundle 拦截). 即使 SW 还在 controller 状态,下次刷新就会失
+      // 效. 同时强制 cache API 清空.
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function (regs) {
+          regs.forEach(function (r) { r.unregister() })
+          // 在 banner 上追加显示
+          var diag = document.getElementById('__diag_ts')
+          if (diag) {
+            diag.textContent += ' · unregistered ' + regs.length + ' SW'
+          }
+        })
+        if (window.caches) {
+          caches.keys().then(function (keys) {
+            keys.forEach(function (k) { caches.delete(k) })
+          })
+        }
+      }
     </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      // ⛔ Service Worker DISABLED for debugging.
-      // SW v1/v2 cached stale SPA index.html + bundle, hiding React
-      // tree behind body::before fixed overlay. We unregister all
-      // existing SWs and skip registration. Re-enable after the
-      // canonical deploy path proves itself.
-      if ('serviceWorker' in navigator && location.protocol !== 'blob:') {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.getRegistrations().then(function (regs) {
-            regs.forEach(function (r) { r.unregister() })
-            if (regs.length) console.log('🐱 SW unregister:', regs.length, 'old SW(s)')
-          })
-        })
-      }
-    </script>
   </body>
 </html>
