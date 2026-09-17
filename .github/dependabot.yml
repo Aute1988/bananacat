@@ -1,4 +1,7 @@
 version: 2
+# Disable all major/semver-major dependency updates that the codebase
+# cannot absorb automatically (Tailwind 4, Recharts 3, lucide-react 1,
+# i18next 26, etc.). Update these by hand.
 updates:
   - package-ecosystem: "npm"
     directory: "/backend"
@@ -9,6 +12,9 @@ updates:
     labels:
       - "dependencies"
       - "backend"
+    ignore:
+      - dependency-name: "*"
+        update-type: "version-update:semver-major"
 
   - package-ecosystem: "npm"
     directory: "/frontend"
@@ -19,6 +25,9 @@ updates:
     labels:
       - "dependencies"
       - "frontend"
+    ignore:
+      - dependency-name: "*"
+        update-type: "version-update:semver-major"
 
   - package-ecosystem: "github-actions"
     directory: "/"
