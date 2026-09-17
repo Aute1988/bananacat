@@ -143,17 +143,6 @@
 html {
   scroll-behavior: smooth;
   scrollbar-color: rgba(252, 211, 77, 0.5) transparent;
-  /*
-   * transform: translateZ(0) 是必须的!
-   * 它让 html 变成一个独立的 stacking context,
-   * 这样 #root { position:relative; z-index:3 } 就能超越
-   * body::before/::after (#__noise-overlay / #__scanlines) 的 z-index:0,
-   * 把 React 内容放到 overlay 叠层之上。
-   * 之前错用 will-change: transform 不会建立 stacking context,
-   * 导致 overlay 始终在 React 内容之上。
-   */
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
   background-color: var(--color-bg-base);
 }
 
@@ -174,11 +163,13 @@ body {
  * 否则 body::before/::after (#__noise-overlay / #__scanlines) 这类
  * fixed + z-index:0 的叠层会盖住整个 React tree —
  * 表现:页面背景渐变 + 噪点 + 扫描线全在,但 nav/body 完全看不到。
- * 把 #root 提到 z-index:3 + relative 就稳了。
+ * 把 #root 提到 z-index:3 + relative + 自己的 stacking context(用
+ * isolation: isolate,不影响 100vh 计算)就稳了。
  */
 #root {
   position: relative;
   z-index: 3;
+  isolation: isolate;
   min-height: 100vh;
 }
 
