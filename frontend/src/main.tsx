@@ -33,6 +33,26 @@ const queryClient = new QueryClient({
   },
 })
 
+// 🩹 全局兜底: #root + 它的直接子元素都强制 min-height 到视口高度
+// 这是为了绕过 chromium 在 #root { isolation:isolate } 上下文下
+// min-height: 100vh 计算成 134px 这种 bug。inline style + px 单位
+// 比 vh 永远稳定。
+function applyRootHeightFallback() {
+  const root = document.getElementById('root')
+  if (!root) return
+  const setH = () => {
+    const h = window.innerHeight
+    root.style.minHeight = h + 'px'
+    // 直接子元素也要撑开
+    for (const child of Array.from(root.children)) {
+      ;(child as HTMLElement).style.minHeight = h + 'px'
+    }
+  }
+  setH()
+  window.addEventListener('resize', setH)
+}
+applyRootHeightFallback()
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ErrorBoundary>

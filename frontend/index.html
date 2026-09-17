@@ -162,7 +162,7 @@
                 var cs = getComputedStyle(k)
                 var rect = k.getBoundingClientRect()
                 var tag = k.tagName + (k.className ? '.' + k.className.split(' ').slice(0,2).join('.') : '')
-                info.push('  d' + (depth+1) + ' ' + tag + ' | pos=' + cs.position + ' z=' + cs.zIndex + ' vis=' + cs.visibility + ' opa=' + cs.opacity + ' disp=' + cs.display + ' font=' + cs.fontSize + ' | rect=' + Math.round(rect.left) + ',' + Math.round(rect.top) + ' ' + Math.round(rect.width) + 'x' + Math.round(rect.height))
+                info.push('  d' + (depth+1) + ' ' + tag + ' | pos=' + cs.position + ' z=' + cs.zIndex + ' vis=' + cs.visibility + ' opa=' + cs.opacity + ' disp=' + cs.display + ' font=' + cs.fontSize + ' minH=' + cs.minHeight + ' h=' + cs.height + ' flexDir=' + cs.flexDirection + ' | rect=' + Math.round(rect.left) + ',' + Math.round(rect.top) + ' ' + Math.round(rect.width) + 'x' + Math.round(rect.height))
                 next.push(k)
               }
             }
