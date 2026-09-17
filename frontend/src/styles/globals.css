@@ -143,9 +143,16 @@
 html {
   scroll-behavior: smooth;
   scrollbar-color: rgba(252, 211, 77, 0.5) transparent;
-  /* 修复 chromium fixed 背景 + transform 元素导致的滚动闪烁 bug */
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+  /*
+   * 之前用 transform: translateZ(0) 修 chromium fixed 背景闪烁,
+   * 但 transform 会让 html 变成新的 stacking context,
+   * 并把 body::before/::after 这类 fixed 叠层的 z-index 行为
+   * 改成"覆盖 #root",导致整页只剩背景看不到 React 内容。
+   * 用 will-change: transform 同样能让浏览器单独合成层,
+   * 但不强制建立新的 stacking context。
+   */
+  will-change: transform;
+  background-color: var(--color-bg-base);
 }
 
 body {
@@ -158,6 +165,19 @@ body {
   font-feature-settings: 'cv11', 'ss01', 'ss03';
   position: relative;
   overflow-x: hidden;
+}
+
+/*
+ * 🛟 React 根容器必须脱离文档流并参与 stacking context,
+ * 否则 body::before/::after (#__noise-overlay / #__scanlines) 这类
+ * fixed + z-index:0 的叠层会盖住整个 React tree —
+ * 表现:页面背景渐变 + 噪点 + 扫描线全在,但 nav/body 完全看不到。
+ * 把 #root 提到 z-index:3 + relative 就稳了。
+ */
+#root {
+  position: relative;
+  z-index: 3;
+  min-height: 100vh;
 }
 
 /* ===== 第 1 层:深邃 Mesh 极光背景 ===== */
