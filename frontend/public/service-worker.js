@@ -9,7 +9,7 @@
  *
  * 离线 fallback: /offline.html
  */
-const CACHE_VERSION = 'bananacat-v1'
+const CACHE_VERSION = 'bananacat-v2'
 const STATIC_CACHE = `${CACHE_VERSION}-static`
 const API_CACHE = `${CACHE_VERSION}-api`
 const IMG_CACHE = `${CACHE_VERSION}-img`
@@ -52,6 +52,16 @@ self.addEventListener('fetch', (event) => {
 
   // 跳过 POST/DELETE/PUT(写操作必须走网络)
   if (request.method !== 'GET') return
+
+  // 跳过非 http(s) 请求(chrome-extension://, data:, blob:, file: 等)
+  // SW 不能 cache 这些,会抛 'Request scheme unsupported' 错。
+  if (url.protocol !== 'http:' && url.protocol !== 'https:') return
+
+  // 跳过跨域(同源策略外)资源,避免不必要的 Cache.put 错误
+  if (url.origin !== self.location.origin) {
+    // 例外: 同 base 下的 API / 静态资源(已经是同源了,走不到这里)
+    return
+  }
 
   // ========== 后端 API:network-first ==========
   if (url.pathname.startsWith(BASE + 'api/') || url.pathname.startsWith('/api/')) {
