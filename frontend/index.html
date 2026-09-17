@@ -89,8 +89,80 @@
           })
         }
       }
+
+      // 🔥 终极错误捕获:任何 JS 错误 / Promise 拒绝 / 资源加载失败
+      // 全部直接显示在红色探针上,这样就算 React 没 mount 我们也能
+      // 知道出了什么错.
+      var errBox = document.createElement('div')
+      errBox.id = '__err_box'
+      errBox.style.cssText = [
+        'position:fixed',
+        'bottom:0',
+        'left:0',
+        'right:0',
+        'max-height:60vh',
+        'overflow:auto',
+        'z-index:2147483645',
+        'background:#000',
+        'color:#ff5555',
+        'font:13px/1.4 ui-monospace,Menlo,monospace',
+        'padding:12px 16px',
+        'box-sizing:border-box',
+        'white-space:pre-wrap',
+        'border-top:2px solid #ff5555',
+        'display:none'
+      ].join(';')
+      errBox.id = '__err_box'
+      document.body.appendChild(errBox)
+      window.__showErr = function(msg) {
+        errBox.style.display = 'block'
+        var p = document.createElement('div')
+        p.textContent = '[' + new Date().toISOString().slice(11,19) + '] ' + msg
+        errBox.appendChild(p)
+      }
+      window.addEventListener('error', function(e) {
+        window.__showErr('ERROR: ' + (e.message || e) + (e.filename ? ' @ ' + e.filename + ':' + e.lineno : '') + (e.error && e.error.stack ? '\n' + e.error.stack : ''))
+      })
+      window.addEventListener('unhandledrejection', function(e) {
+        var r = e.reason
+        window.__showErr('PROMISE: ' + (r && r.message ? r.message : r) + (r && r.stack ? '\n' + r.stack : ''))
+      })
+      // 监听 #root 内容变化,如果 3 秒后还是空,显示提示
+      setTimeout(function() {
+        var root = document.getElementById('root')
+        if (root && !root.innerHTML.trim()) {
+          window.__showErr('#root 3秒后仍为空,React 没有 mount。\n可能是 JS bundle 没加载或抛错。\n请看上面 ERROR / PROMISE 错误。')
+        } else if (root) {
+          window.__showErr('#root 已渲染 (' + root.innerHTML.length + ' 字节) ✅')
+        } else {
+          window.__showErr('#root 元素不存在!')
+        }
+      }, 3000)
     </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- 🔥 备用 React 测试 mount: 直接在 #root 上 render 一个最小化的
+         React 节点。如果这个能渲染,说明 React 库本身 OK;如果连这个
+         都失败,说明 main.tsx 加载阶段就出了问题。-->
+    <script type="module">
+      setTimeout(async () => {
+        try {
+          const R = await import('react')
+          const RD = await import('react-dom/client')
+          const root = document.getElementById('root')
+          if (!root) { window.__showErr && window.__showErr('NO #root'); return }
+          // 仅当 main.tsx 没渲染时才插入测试
+          if (!root.innerHTML.trim()) {
+            RD.default.createRoot(root).render(
+              R.default.createElement('div', {
+                style: { padding: 24, background: '#10b981', color: '#fff', font: '700 18px/1.4 system-ui', marginTop: 270 }
+              }, '✅ React test mount 成功! main.tsx 没 mount,问题在 main.tsx 加载/执行。')
+            )
+          }
+        } catch (e) {
+          window.__showErr && window.__showErr('React import failed: ' + e.message)
+        }
+      }, 5000)
+    </script>
   </body>
 </html>
