@@ -7,12 +7,18 @@ import react from '@vitejs/plugin-react'
 // Override via VITE_BASE_PATH at build time.
 //
 // Vite's default HTML transform only rewrites module <script src>,
-// not arbitrary href / content / inline <script> references. This
-// plugin fixes that, and injects window.__VITE_BASE__ for runtime use
-// (e.g. service worker registration).
+// not arbitrary href / inline <script> references. This plugin fixes
+// that, and injects window.__VITE_BASE__ for runtime use (e.g.
+// service worker registration).
+//
+// NOTE: We only touch href / src, NEVER content (that's where metadata
+// like viewport / theme-color / format-detection / og:* lives, and
+// prefixing those breaks the page entirely).
 function htmlBaseFix(base: string): Plugin {
   const isAbsolute = (p: string) =>
-    /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(p) || p.startsWith('data:') || p.startsWith('blob:')
+    /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(p) ||
+    p.startsWith('data:') ||
+    p.startsWith('blob:')
 
   return {
     name: 'html-base-fix',
@@ -21,7 +27,6 @@ function htmlBaseFix(base: string): Plugin {
       order: 'post',
       handler(html) {
         if (!base || base === '/') {
-          // 仍然注入 base 常量让 SW 脚本能拿到
           return html.replace(
             '<head>',
             `<head><script>window.__VITE_BASE__="/";</script>`,
@@ -31,14 +36,12 @@ function htmlBaseFix(base: string): Plugin {
         const safeB = JSON.stringify(b)
         return html
           .replace(
-            /(href|content|src)="([^"]*)"/g,
+            /((?:href|src))="([^"]*)"/g,
             (m, attr, path) => {
               if (!path || isAbsolute(path) || path.startsWith(b)) return m
-              // 已经是 base-prefixed就不动
               if (path.startsWith('/')) {
                 return `${attr}="${b}${path.slice(1)}"`
               }
-              // 相对路径 -> base + path
               return `${attr}="${b}${path}"`
             },
           )
