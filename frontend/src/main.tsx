@@ -37,19 +37,33 @@ const queryClient = new QueryClient({
 // 这是为了绕过 chromium 在 #root { isolation:isolate } 上下文下
 // min-height: 100vh 计算成 134px 这种 bug。inline style + px 单位
 // 比 vh 永远稳定。
+//
+// 关键: 我们必须等到 React tree mount 完成才能给子元素设高度,所以
+// 用 MutationObserver 监听 #root 的子节点变化,一旦子元素出现就
+// 立刻把视口高度写到它和所有新出现的直接子元素上。
 function applyRootHeightFallback() {
   const root = document.getElementById('root')
   if (!root) return
-  const setH = () => {
+  const setH = (el: Element) => {
     const h = window.innerHeight
-    root.style.minHeight = h + 'px'
-    // 直接子元素也要撑开
-    for (const child of Array.from(root.children)) {
-      ;(child as HTMLElement).style.minHeight = h + 'px'
-    }
+    ;(el as HTMLElement).style.minHeight = h + 'px'
   }
-  setH()
-  window.addEventListener('resize', setH)
+  const sync = () => {
+    setH(root)
+    for (const child of Array.from(root.children)) setH(child)
+  }
+  sync()
+  window.addEventListener('resize', sync)
+
+  // MutationObserver: 监听 #root 子节点变化,React 每次 mount 时
+  // 会插入新的子元素,我们要立即给它们设 minHeight
+  const mo = new MutationObserver(sync)
+  mo.observe(root, { childList: true, subtree: false })
+
+  // 兜底: 1s 后再 sync 一次,确保 React 异步 mount 的元素也能拿到
+  setTimeout(sync, 100)
+  setTimeout(sync, 500)
+  setTimeout(sync, 1500)
 }
 applyRootHeightFallback()
 
