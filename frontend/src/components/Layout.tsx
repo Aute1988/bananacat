@@ -6,18 +6,6 @@ import LanguageSwitcher from './LanguageSwitcher'
 import ThemeToggle from './ThemeToggle'
 import ChainSelector from './ChainSelector'
 
-// 渲染标记：第一次 mount 到屏幕时打 console.log，方便远程诊断。
-// 如果你看不到这条 log，说明 React tree 在到达 Layout 之前就崩了
-// (通常是被 ErrorBoundary 兜住，红色 banner 会显示具体原因)。
-if (typeof window !== 'undefined') {
-  // 用 queueMicrotask 避开 StrictMode 双调用的干扰，只在第一次挂载时记一次
-  if (!(window as unknown as { __BANANA_MOUNTED__?: boolean }).__BANANA_MOUNTED__) {
-    ;(window as unknown as { __BANANA_MOUNTED__?: boolean }).__BANANA_MOUNTED__ = true
-    // eslint-disable-next-line no-console
-    console.log('🍌🐱 Layout mounted — banana site is alive!')
-  }
-}
-
 export default function Layout() {
   const location = useLocation()
   const { t } = useTranslation()

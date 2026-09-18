@@ -170,17 +170,9 @@ body {
   position: relative;
   z-index: 3;
   isolation: isolate;
-  /*
-   * 不再用 min-height: 100vh — isolation + transform 在某些 chromium
-   * 版本下会让 100vh 计算为 0 或碎片值。改用 JS 在 mount 时根据实际
-   * window.innerHeight 设到 #root 的 style 属性里,绕开所有 vh 计算
-   * bug.
-   */
 }
 
-/*
- * 兜底: 直接给 #root > * 也强制 min-height,防止 Layout 的 div 塌缩
- */
+/* 兜底: 直接给 #root > * 也强制 min-height,让 Layout 即便内容少也铺满屏幕 */
 #root > * {
   min-height: 100vh;
 }
